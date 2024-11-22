@@ -1,0 +1,40 @@
+
+### **Proyecto de Integración con Keycloak para Autenticación OAuth2**
+
+Este proyecto demuestra cómo integrar Keycloak en una aplicación PHP para manejar la autenticación de usuarios utilizando
+ el protocolo OAuth2. 
+
+#### **Cómo Funciona la Autenticación:**
+
+1. **Flujo de Autenticación**:
+   - **Redirección a Keycloak**: El usuario es redirigido a la página de autenticación de Keycloak mediante un enlace de autorización.
+   - **Ingreso del Usuario**: El usuario ingresa sus credenciales en la interfaz de Keycloak.
+   - **Autorización**: Si las credenciales son correctas, Keycloak devuelve un código de autorización a la aplicación.
+   - **Intercambio del Código por un Token de Acceso**: La aplicación utiliza este código para solicitar un token de acceso a Keycloak.
+   - **Obtención de Información del Usuario**: Con el token de acceso, la aplicación obtiene los datos del usuario (como el correo electrónico).
+   - **Sesión de Usuario**: Los datos obtenidos (token de acceso y correo electrónico) se almacenan en la sesión, lo que permite que el usuario acceda a las páginas protegidas de la aplicación.
+
+2. **Páginas Principales**:
+   - **index.php**: Página de inicio donde los usuarios son redirigidos a Keycloak para autenticar su identidad.
+   - **callback.php**: Archivo que maneja el intercambio del código de autorización por el token de acceso y obtiene la información del usuario desde Keycloak.
+   - **welcome.php**: Página donde se muestra la información del usuario autenticado, como el correo electrónico.
+   - **logout.php**: Página para cerrar sesión y destruir los datos de la sesión.
+
+
+#### **Flujo de Autenticación y Seguridad**:
+   - La autenticación se maneja a través del protocolo OAuth2, utilizando el flujo de autorización.
+   - El token de acceso obtenido en el proceso de autenticación es guardado de forma segura en la sesión del servidor. 
+   - Una vez autenticado, el usuario puede acceder a la página de bienvenida (`welcome.php`), donde se muestra su correo electrónico.
+
+#### **Tecnologías Utilizadas**:
+- **PHP**.
+- **OAuth2**: Protocolo de autorización utilizado para la autenticación.
+- **Keycloak**: Solución de gestión de identidades y acceso.
+- **Composer**: Herramienta para la gestión de dependencias en PHP.
+
+
+
+
+Este proyecto es un ejemplo de cómo integrar una solución de autenticación robusta utilizando Keycloak con PHP, 
+ideal para aplicaciones que necesitan gestionar la autenticación de manera centralizada y segura.
+
